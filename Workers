@@ -1,0 +1,64 @@
+package org.example;
+
+public class Worker {
+
+    static abstract class Workers {
+        public String name;
+        Workers(String name) {
+            this.name = name;
+        }
+
+        public abstract double Salary();
+    }
+
+ 
+    static class HourlyWorker extends Workers {
+        private double Rate;
+        private double Hours;
+
+        HourlyWorker(String name, double Rate, double Hours) {
+            super(name);
+            this.Rate = Rate;
+            this.Hours = Hours;
+        }
+
+        // Начисление зарплаты для почасового работника
+        @Override
+        public double Salary() {
+            return Rate * Hours;
+        }
+    }
+
+    
+    static class PermanentWorker extends Workers {
+        private double yearSalary;
+        PermanentWorker(String name, double yearSalary) {
+            super(name);
+            this.yearSalary = yearSalary;
+        }
+
+        // Начисление зарплаты для штатного работника
+        @Override
+        public double Salary() {
+            return yearSalary / 12;
+        }
+    }
+
+    static class PercentWorker extends Workers {
+        private double Sales;
+        private double Percent;
+
+        PercentWorker(String name, double Sales, double Percent) {
+            super(name);
+            this.Sales = Sales;
+            this.Percent = Percent;
+        }
+
+        // Начисление зарплаты для работника с процентной ставкой
+        @Override
+        public double Salary() {
+            return Sales * Percent;
+        }
+    }
+}
+
