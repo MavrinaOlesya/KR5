@@ -1,0 +1,24 @@
+
+package org.example;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+
+class WorkerTest {
+    @Test
+    void testHourlyWorker() {
+        HourlyWorker Hourly = new HourlyWorker("Маврина Олеся", 5, 100);
+        Assertions.assertEquals(500, Hourly.Salary());
+    }
+
+    @Test
+    void testPermanentWorker() {
+        PermanentWorker Permanent = new PermanentWorker("Маврина Олеся", 120000);
+        Assertions.assertEquals(10000, Permanent.Salary());
+    }
+
+    @Test
+    void testPercentWorker() {
+        PercentWorker Percent = new PercentWorker("Маврина Олеся", 10000, 0.1);
+        Assertions.assertEquals(1000, Percent.Salary());
+    }
